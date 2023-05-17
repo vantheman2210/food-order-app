@@ -21,13 +21,13 @@ const HeaderCartButton = (props) => {
 
     setClassActive(true);
 
-    setTimeout(
-      () => {
-        setClassActive(false);
-      },
+    const timer = setTimeout(() => {
+      setClassActive(false);
+    }, 300);
 
-      500
-    );
+    return () => { 
+      clearTimeout(timer);
+    }
   }, [data.items]);
   return (
     <button className={btnClasses} onClick={props.onClick}>
